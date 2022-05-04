@@ -7,13 +7,19 @@ package FXML;
 
 import DBAccess.NavegacionDAOException;
 import IrA.IrA;
+import com.sun.javafx.logging.PlatformLogger.Level;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.lang.System.Logger;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -30,8 +36,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 import model.Navegacion;
 import model.User;
+import poiupv.PoiUPVApp;
 
 /**
  * FXML Controller class
@@ -64,7 +72,26 @@ public class FXMLRegistrarseController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        EventHandler<ActionEvent> btnLoadEventListener
+                = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                FileChooser fileChooser = new FileChooser();
+                FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
+                FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
+                fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterPNG);
+                File file = fileChooser.showOpenDialog(null);
+                try {
+                    BufferedImage bufferedImage = ImageIO.read(file);
+                    Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                    IVAvatar.setImage(image);
+                    IVAvatar.setFitHeight(150);
+                    IVAvatar.setFitWidth(90);
+                } catch (IOException ex) {
+                    java.util.logging.Logger.getLogger(PoiUPVApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                }
+            }
+        };
     }    
     
     private String usuario;
