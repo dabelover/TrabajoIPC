@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox stylesheets="@../resources/estilos.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poiupv.FXMLDocumentController">
+<VBox stylesheets="@../resources/estilos.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poiupv.FXMLDocumentController">
    <children>
       <HBox alignment="CENTER_RIGHT" fillHeight="false" spacing="5.0" VBox.vgrow="NEVER">
          <children>
@@ -59,7 +59,7 @@
                <content>
                   <Pane>
                      <children>
-                        <ImageView pickOnBounds="true">
+                        <ImageView layoutX="-14.0" layoutY="-63.0" pickOnBounds="true">
                            <image>
                               <Image url="@../resources/upv.jpg" />
                            </image>
