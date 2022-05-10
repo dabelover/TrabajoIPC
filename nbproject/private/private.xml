@@ -5,6 +5,8 @@
         <group name="IPC"/>
         <group>
             <file>file:/C:/Netbeans/TrabajoIPC/src/FXML/FXMLRegistrarseController.java</file>
+            <file>file:/C:/Netbeans/TrabajoIPC/src/FXML/FXMLProblemasController.java</file>
+            <file>file:/C:/Netbeans/TrabajoIPC/src/poiupv/PoiUPVApp.java</file>
         </group>
     </open-files>
 </project-private>
